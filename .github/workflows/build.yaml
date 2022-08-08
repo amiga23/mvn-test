@@ -27,4 +27,4 @@ jobs:
           commit: 'com'
           new_branch: public
           push: origin public --set-upstream --force
-          remove: '["-r",".github","my-app","README.md"]'
+          remove: '-r -f .github my-app README.md'
