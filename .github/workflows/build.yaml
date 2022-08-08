@@ -20,11 +20,11 @@ jobs:
         working-directory: my-app
         run: |
           mvn --batch-mode --update-snapshots package
-          mvn deploy -DaltDeploymentRepository=snapshot-repo::default::file:..
+          mvn --batch-mode deploy -DaltDeploymentRepository=snapshot-repo::default::file:..
       - uses: EndBug/add-and-commit@v9
         with:
           add: 'com'
           commit: 'com'
           new_branch: public
           push: origin public --set-upstream --force
-          remove: '[".github","src","README.md"]'
+          remove: '["-r",".github","src","README.md"]'
