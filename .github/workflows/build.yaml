@@ -22,3 +22,4 @@ jobs:
         with:
           add: 'com'
           new_branch: public
+          push: origin public --set-upstream --force
