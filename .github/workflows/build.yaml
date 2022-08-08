@@ -18,7 +18,7 @@ jobs:
         run: |
           mvn --batch-mode --update-snapshots package
           mvn deploy -DaltDeploymentRepository=snapshot-repo::default::file:..
-      - uses: actions/checkout@v2
+      - uses: EndBug/add-and-commit@v9
         with:
           add: 'com'
           new_branch: public
