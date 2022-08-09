@@ -22,10 +22,10 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-#      - name: Build with Maven
-#        working-directory: my-app
-#        run: |
-#          mvn --batch-mode --update-snapshots package
+      - name: Build with Maven
+        working-directory: my-app
+        run: |
+          mvn --batch-mode --update-snapshots package
 #          mvn --batch-mode deploy -DaltDeploymentRepository=snapshot-repo::default::file:..
 #      - uses: EndBug/add-and-commit@v9
 #        with:
