@@ -32,6 +32,7 @@ jobs:
 #          new_branch: public
 #          push: origin public --set-upstream --force
       - name: Publish package
+        working-directory: my-app
         run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
