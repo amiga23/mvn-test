@@ -9,6 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: read
+      packages: write
+
     steps:
       - uses: actions/checkout@v3
       - name: Set up JDK 11
@@ -16,14 +20,18 @@ jobs:
         with:
           java-version: '11'
           distribution: 'adopt'
-      - name: Build with Maven
-        working-directory: my-app
-        run: |
-          mvn --batch-mode --update-snapshots package
-          mvn --batch-mode deploy -DaltDeploymentRepository=snapshot-repo::default::file:..
-      - uses: EndBug/add-and-commit@v9
-        with:
-          remove: '-r -f .github my-app README.md'
-          add: './com'
-          new_branch: public
-          push: origin public --set-upstream --force
+#      - name: Build with Maven
+#        working-directory: my-app
+#        run: |
+#          mvn --batch-mode --update-snapshots package
+#          mvn --batch-mode deploy -DaltDeploymentRepository=snapshot-repo::default::file:..
+#      - uses: EndBug/add-and-commit@v9
+#        with:
+#          remove: '-r -f .github my-app README.md'
+#          add: './com'
+#          new_branch: public
+#          push: origin public --set-upstream --force
+      - name: Publish package
+        run: mvn --batch-mode deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
