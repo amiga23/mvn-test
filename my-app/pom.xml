@@ -38,7 +38,7 @@
   <repositories>
     <repository>
       <id>github</id>
-      <url>https://maven.pkg.github.com/amiga23/hello-world</url>
+      <url>https://maven.pkg.github.com/amiga23/mvn-test</url>
       <snapshots>
         <enabled>true</enabled>
       </snapshots>
